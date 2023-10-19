@@ -1,0 +1,27 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: build
+    image: golang
+    environment:
+      TMDB_API_URL:
+        from_secret: tmdb_api_url
+      TMDB_API_TOKEN:
+        from_secret: tmdb_api_token
+    commands:
+      - make test
+  - name: slack
+    image: plugins/slack
+    settings:
+      webhook:
+        from_secret: slack_webhook
+    when:
+      status: [success, failure]
+
+trigger:
+  branch:
+    - main
+  event:
+    - push

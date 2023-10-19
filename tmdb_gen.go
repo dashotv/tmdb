@@ -1091,7 +1091,7 @@ type Client struct {
 type ClientOption func(*Client) error
 
 // Creates a new Client, with reasonable defaults
-func NewClient(server string, opts ...ClientOption) (*Client, error) {
+func newClient(server string, opts ...ClientOption) (*Client, error) {
 	// create a client with sane default values
 	client := Client{
 		Server: server,
@@ -14000,8 +14000,8 @@ type ClientWithResponses struct {
 
 // NewClientWithResponses creates a new ClientWithResponses, which wraps
 // Client with return type handling
-func NewClientWithResponses(server string, opts ...ClientOption) (*ClientWithResponses, error) {
-	client, err := NewClient(server, opts...)
+func newClientWithResponses(server string, opts ...ClientOption) (*ClientWithResponses, error) {
+	client, err := newClient(server, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -16075,7 +16075,7 @@ type DiscoverTvResponse struct {
 			Overview         *string   `json:"overview,omitempty"`
 			Popularity       *float32  `json:"popularity,omitempty"`
 			PosterPath       *string   `json:"poster_path,omitempty"`
-			VoteAverage      *int      `json:"vote_average,omitempty"`
+			VoteAverage      *float32      `json:"vote_average,omitempty"`
 			VoteCount        *int      `json:"vote_count,omitempty"`
 		} `json:"results,omitempty"`
 		TotalPages   *int `json:"total_pages,omitempty"`
@@ -16451,7 +16451,7 @@ type ListDetailsResponse struct {
 		CreatedBy     *string `json:"created_by,omitempty"`
 		Description   *string `json:"description,omitempty"`
 		FavoriteCount *int    `json:"favorite_count,omitempty"`
-		Id            *string `json:"id,omitempty"`
+		Id            *int `json:"id,omitempty"`
 		Iso6391       *string `json:"iso_639_1,omitempty"`
 		ItemCount     *int    `json:"item_count,omitempty"`
 		Items         *[]struct {
@@ -16468,7 +16468,7 @@ type ListDetailsResponse struct {
 			ReleaseDate      *string  `json:"release_date,omitempty"`
 			Title            *string  `json:"title,omitempty"`
 			Video            *bool    `json:"video,omitempty"`
-			VoteAverage      *int     `json:"vote_average,omitempty"`
+			VoteAverage      *float32     `json:"vote_average,omitempty"`
 			VoteCount        *int     `json:"vote_count,omitempty"`
 		} `json:"items,omitempty"`
 		Name       *string `json:"name,omitempty"`
@@ -16546,7 +16546,7 @@ type ListCheckItemStatusResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *struct {
-		Id          *int  `json:"id,omitempty"`
+		Id          *string  `json:"id,omitempty"`
 		ItemPresent *bool `json:"item_present,omitempty"`
 	}
 }
@@ -16637,7 +16637,7 @@ type MovieLatestIdResponse struct {
 		OriginalLanguage    *string        `json:"original_language,omitempty"`
 		OriginalTitle       *string        `json:"original_title,omitempty"`
 		Overview            *string        `json:"overview,omitempty"`
-		Popularity          *int           `json:"popularity,omitempty"`
+		Popularity *float32           `json:"popularity,omitempty"`
 		PosterPath          *interface{}   `json:"poster_path,omitempty"`
 		ProductionCompanies *[]interface{} `json:"production_companies,omitempty"`
 		ProductionCountries *[]interface{} `json:"production_countries,omitempty"`
@@ -16649,7 +16649,7 @@ type MovieLatestIdResponse struct {
 		Tagline             *string        `json:"tagline,omitempty"`
 		Title               *string        `json:"title,omitempty"`
 		Video               *bool          `json:"video,omitempty"`
-		VoteAverage         *int           `json:"vote_average,omitempty"`
+		VoteAverage *float32           `json:"vote_average,omitempty"`
 		VoteCount           *int           `json:"vote_count,omitempty"`
 	}
 }
@@ -16822,7 +16822,7 @@ type MovieUpcomingListResponse struct {
 			ReleaseDate      *string  `json:"release_date,omitempty"`
 			Title            *string  `json:"title,omitempty"`
 			Video            *bool    `json:"video,omitempty"`
-			VoteAverage      *int     `json:"vote_average,omitempty"`
+			VoteAverage *float32     `json:"vote_average,omitempty"`
 			VoteCount        *int     `json:"vote_count,omitempty"`
 		} `json:"results,omitempty"`
 		TotalPages   *int `json:"total_pages,omitempty"`
@@ -19083,7 +19083,7 @@ type PersonLatestIdResponse struct {
 		KnownForDepartment *interface{}   `json:"known_for_department,omitempty"`
 		Name               *string        `json:"name,omitempty"`
 		PlaceOfBirth       *interface{}   `json:"place_of_birth,omitempty"`
-		Popularity         *int           `json:"popularity,omitempty"`
+		Popularity *float32           `json:"popularity,omitempty"`
 		ProfilePath        *interface{}   `json:"profile_path,omitempty"`
 	}
 }
@@ -20077,7 +20077,7 @@ type TvSeriesAiringTodayListResponse struct {
 			Overview         *string   `json:"overview,omitempty"`
 			Popularity       *float32  `json:"popularity,omitempty"`
 			PosterPath       *string   `json:"poster_path,omitempty"`
-			VoteAverage      *int      `json:"vote_average,omitempty"`
+			VoteAverage *float32      `json:"vote_average,omitempty"`
 			VoteCount        *int      `json:"vote_count,omitempty"`
 		} `json:"results,omitempty"`
 		TotalPages   *int `json:"total_pages,omitempty"`
@@ -20245,7 +20245,7 @@ type TvSeriesLatestIdResponse struct {
 			SeasonNumber   *int         `json:"season_number,omitempty"`
 			ShowId         *int         `json:"show_id,omitempty"`
 			StillPath      *interface{} `json:"still_path,omitempty"`
-			VoteAverage    *int         `json:"vote_average,omitempty"`
+			VoteAverage *float32         `json:"vote_average,omitempty"`
 			VoteCount      *int         `json:"vote_count,omitempty"`
 		} `json:"last_episode_to_air,omitempty"`
 		Name                *string        `json:"name,omitempty"`
@@ -20257,7 +20257,7 @@ type TvSeriesLatestIdResponse struct {
 		OriginalLanguage    *string        `json:"original_language,omitempty"`
 		OriginalName        *string        `json:"original_name,omitempty"`
 		Overview            *string        `json:"overview,omitempty"`
-		Popularity          *int           `json:"popularity,omitempty"`
+		Popularity *float32           `json:"popularity,omitempty"`
 		PosterPath          *interface{}   `json:"poster_path,omitempty"`
 		ProductionCompanies *[]interface{} `json:"production_companies,omitempty"`
 		ProductionCountries *[]interface{} `json:"production_countries,omitempty"`
@@ -20274,7 +20274,7 @@ type TvSeriesLatestIdResponse struct {
 		Status          *string        `json:"status,omitempty"`
 		Tagline         *string        `json:"tagline,omitempty"`
 		Type            *string        `json:"type,omitempty"`
-		VoteAverage     *int           `json:"vote_average,omitempty"`
+		VoteAverage *float32           `json:"vote_average,omitempty"`
 		VoteCount       *int           `json:"vote_count,omitempty"`
 	}
 }
@@ -20312,7 +20312,7 @@ type TvSeriesOnTheAirListResponse struct {
 			Overview         *string   `json:"overview,omitempty"`
 			Popularity       *float32  `json:"popularity,omitempty"`
 			PosterPath       *string   `json:"poster_path,omitempty"`
-			VoteAverage      *int      `json:"vote_average,omitempty"`
+			VoteAverage *float32      `json:"vote_average,omitempty"`
 			VoteCount        *int      `json:"vote_count,omitempty"`
 		} `json:"results,omitempty"`
 		TotalPages   *int `json:"total_pages,omitempty"`
@@ -20353,7 +20353,7 @@ type TvSeriesPopularListResponse struct {
 			Overview         *string   `json:"overview,omitempty"`
 			Popularity       *float32  `json:"popularity,omitempty"`
 			PosterPath       *string   `json:"poster_path,omitempty"`
-			VoteAverage      *int      `json:"vote_average,omitempty"`
+			VoteAverage *float32      `json:"vote_average,omitempty"`
 			VoteCount        *int      `json:"vote_count,omitempty"`
 		} `json:"results,omitempty"`
 		TotalPages   *int `json:"total_pages,omitempty"`
@@ -20525,7 +20525,7 @@ type TvSeriesDetailsResponse struct {
 			Overview     *string `json:"overview,omitempty"`
 			PosterPath   *string `json:"poster_path,omitempty"`
 			SeasonNumber *int    `json:"season_number,omitempty"`
-			VoteAverage  *int    `json:"vote_average,omitempty"`
+			VoteAverage *float32    `json:"vote_average,omitempty"`
 		} `json:"seasons,omitempty"`
 		SpokenLanguages *[]struct {
 			EnglishName *string `json:"english_name,omitempty"`
@@ -20562,9 +20562,10 @@ type TvSeriesAccountStatesResponse struct {
 	JSON200      *struct {
 		Favorite *bool `json:"favorite,omitempty"`
 		Id       *int  `json:"id,omitempty"`
-		Rated    *struct {
-			Value *int `json:"value,omitempty"`
-		} `json:"rated,omitempty"`
+		Rated *bool `json:"rated,omitempty"`
+		// Rated    *struct {
+		// 	Value *int `json:"value,omitempty"`
+		// } `json:"rated,omitempty"`
 		Watchlist *bool `json:"watchlist,omitempty"`
 	}
 }
@@ -21113,7 +21114,7 @@ type TvSeasonDetailsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *struct {
-		Id       *string `json:"_id,omitempty"`
+		// Id       *string `json:"_id,omitempty"`
 		AirDate  *string `json:"air_date,omitempty"`
 		Episodes *[]struct {
 			AirDate *string `json:"air_date,omitempty"`
@@ -21188,9 +21189,10 @@ type TvSeasonAccountStatesResponse struct {
 		Results *[]struct {
 			EpisodeNumber *int `json:"episode_number,omitempty"`
 			Id            *int `json:"id,omitempty"`
-			Rated         *struct {
-				Value *int `json:"value,omitempty"`
-			} `json:"rated,omitempty"`
+			Rated *bool `json:"rated,omitempty"`
+			// Rated         *struct {
+			// 	Value *int `json:"value,omitempty"`
+			// } `json:"rated,omitempty"`
 		} `json:"results,omitempty"`
 	}
 }
@@ -21385,9 +21387,10 @@ type TvEpisodeAccountStatesResponse struct {
 	JSON200      *struct {
 		Favorite *bool `json:"favorite,omitempty"`
 		Id       *int  `json:"id,omitempty"`
-		Rated    *struct {
-			Value *int `json:"value,omitempty"`
-		} `json:"rated,omitempty"`
+			Rated *bool `json:"rated,omitempty"`
+			// Rated         *struct {
+			// 	Value *int `json:"value,omitempty"`
+			// } `json:"rated,omitempty"`
 		Watchlist *bool `json:"watchlist,omitempty"`
 	}
 }
@@ -22721,7 +22724,7 @@ type TvSeriesSimilarResponse struct {
 			Overview         *string   `json:"overview,omitempty"`
 			Popularity       *float32  `json:"popularity,omitempty"`
 			PosterPath       *string   `json:"poster_path,omitempty"`
-			VoteAverage      *int      `json:"vote_average,omitempty"`
+			VoteAverage *float32      `json:"vote_average,omitempty"`
 			VoteCount        *int      `json:"vote_count,omitempty"`
 		} `json:"results,omitempty"`
 		TotalPages   *int `json:"total_pages,omitempty"`
@@ -27149,7 +27152,7 @@ func ParseDiscoverTvResponse(rsp *http.Response) (*DiscoverTvResponse, error) {
 				Overview         *string   `json:"overview,omitempty"`
 				Popularity       *float32  `json:"popularity,omitempty"`
 				PosterPath       *string   `json:"poster_path,omitempty"`
-				VoteAverage      *int      `json:"vote_average,omitempty"`
+				VoteAverage      *float32      `json:"vote_average,omitempty"`
 				VoteCount        *int      `json:"vote_count,omitempty"`
 			} `json:"results,omitempty"`
 			TotalPages   *int `json:"total_pages,omitempty"`
@@ -27569,7 +27572,7 @@ func ParseListDetailsResponse(rsp *http.Response) (*ListDetailsResponse, error) 
 			CreatedBy     *string `json:"created_by,omitempty"`
 			Description   *string `json:"description,omitempty"`
 			FavoriteCount *int    `json:"favorite_count,omitempty"`
-			Id            *string `json:"id,omitempty"`
+			Id            *int `json:"id,omitempty"`
 			Iso6391       *string `json:"iso_639_1,omitempty"`
 			ItemCount     *int    `json:"item_count,omitempty"`
 			Items         *[]struct {
@@ -27586,7 +27589,7 @@ func ParseListDetailsResponse(rsp *http.Response) (*ListDetailsResponse, error) 
 				ReleaseDate      *string  `json:"release_date,omitempty"`
 				Title            *string  `json:"title,omitempty"`
 				Video            *bool    `json:"video,omitempty"`
-				VoteAverage      *int     `json:"vote_average,omitempty"`
+				VoteAverage      *float32     `json:"vote_average,omitempty"`
 				VoteCount        *int     `json:"vote_count,omitempty"`
 			} `json:"items,omitempty"`
 			Name       *string `json:"name,omitempty"`
@@ -27676,7 +27679,7 @@ func ParseListCheckItemStatusResponse(rsp *http.Response) (*ListCheckItemStatusR
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
-			Id          *int  `json:"id,omitempty"`
+			Id          *string  `json:"id,omitempty"`
 			ItemPresent *bool `json:"item_present,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -27779,7 +27782,7 @@ func ParseMovieLatestIdResponse(rsp *http.Response) (*MovieLatestIdResponse, err
 			OriginalLanguage    *string        `json:"original_language,omitempty"`
 			OriginalTitle       *string        `json:"original_title,omitempty"`
 			Overview            *string        `json:"overview,omitempty"`
-			Popularity          *int           `json:"popularity,omitempty"`
+			Popularity *float32           `json:"popularity,omitempty"`
 			PosterPath          *interface{}   `json:"poster_path,omitempty"`
 			ProductionCompanies *[]interface{} `json:"production_companies,omitempty"`
 			ProductionCountries *[]interface{} `json:"production_countries,omitempty"`
@@ -27791,7 +27794,7 @@ func ParseMovieLatestIdResponse(rsp *http.Response) (*MovieLatestIdResponse, err
 			Tagline             *string        `json:"tagline,omitempty"`
 			Title               *string        `json:"title,omitempty"`
 			Video               *bool          `json:"video,omitempty"`
-			VoteAverage         *int           `json:"vote_average,omitempty"`
+			VoteAverage *float32           `json:"vote_average,omitempty"`
 			VoteCount           *int           `json:"vote_count,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -27980,7 +27983,7 @@ func ParseMovieUpcomingListResponse(rsp *http.Response) (*MovieUpcomingListRespo
 				ReleaseDate      *string  `json:"release_date,omitempty"`
 				Title            *string  `json:"title,omitempty"`
 				Video            *bool    `json:"video,omitempty"`
-				VoteAverage      *int     `json:"vote_average,omitempty"`
+				VoteAverage *float32     `json:"vote_average,omitempty"`
 				VoteCount        *int     `json:"vote_count,omitempty"`
 			} `json:"results,omitempty"`
 			TotalPages   *int `json:"total_pages,omitempty"`
@@ -30324,7 +30327,7 @@ func ParsePersonLatestIdResponse(rsp *http.Response) (*PersonLatestIdResponse, e
 			KnownForDepartment *interface{}   `json:"known_for_department,omitempty"`
 			Name               *string        `json:"name,omitempty"`
 			PlaceOfBirth       *interface{}   `json:"place_of_birth,omitempty"`
-			Popularity         *int           `json:"popularity,omitempty"`
+			Popularity *float32           `json:"popularity,omitempty"`
 			ProfilePath        *interface{}   `json:"profile_path,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -31410,7 +31413,7 @@ func ParseTvSeriesAiringTodayListResponse(rsp *http.Response) (*TvSeriesAiringTo
 				Overview         *string   `json:"overview,omitempty"`
 				Popularity       *float32  `json:"popularity,omitempty"`
 				PosterPath       *string   `json:"poster_path,omitempty"`
-				VoteAverage      *int      `json:"vote_average,omitempty"`
+				VoteAverage *float32      `json:"vote_average,omitempty"`
 				VoteCount        *int      `json:"vote_count,omitempty"`
 			} `json:"results,omitempty"`
 			TotalPages   *int `json:"total_pages,omitempty"`
@@ -31594,7 +31597,7 @@ func ParseTvSeriesLatestIdResponse(rsp *http.Response) (*TvSeriesLatestIdRespons
 				SeasonNumber   *int         `json:"season_number,omitempty"`
 				ShowId         *int         `json:"show_id,omitempty"`
 				StillPath      *interface{} `json:"still_path,omitempty"`
-				VoteAverage    *int         `json:"vote_average,omitempty"`
+				VoteAverage *float32         `json:"vote_average,omitempty"`
 				VoteCount      *int         `json:"vote_count,omitempty"`
 			} `json:"last_episode_to_air,omitempty"`
 			Name                *string        `json:"name,omitempty"`
@@ -31606,7 +31609,7 @@ func ParseTvSeriesLatestIdResponse(rsp *http.Response) (*TvSeriesLatestIdRespons
 			OriginalLanguage    *string        `json:"original_language,omitempty"`
 			OriginalName        *string        `json:"original_name,omitempty"`
 			Overview            *string        `json:"overview,omitempty"`
-			Popularity          *int           `json:"popularity,omitempty"`
+			Popularity *float32           `json:"popularity,omitempty"`
 			PosterPath          *interface{}   `json:"poster_path,omitempty"`
 			ProductionCompanies *[]interface{} `json:"production_companies,omitempty"`
 			ProductionCountries *[]interface{} `json:"production_countries,omitempty"`
@@ -31623,7 +31626,7 @@ func ParseTvSeriesLatestIdResponse(rsp *http.Response) (*TvSeriesLatestIdRespons
 			Status          *string        `json:"status,omitempty"`
 			Tagline         *string        `json:"tagline,omitempty"`
 			Type            *string        `json:"type,omitempty"`
-			VoteAverage     *int           `json:"vote_average,omitempty"`
+			VoteAverage *float32           `json:"vote_average,omitempty"`
 			VoteCount       *int           `json:"vote_count,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -31665,7 +31668,7 @@ func ParseTvSeriesOnTheAirListResponse(rsp *http.Response) (*TvSeriesOnTheAirLis
 				Overview         *string   `json:"overview,omitempty"`
 				Popularity       *float32  `json:"popularity,omitempty"`
 				PosterPath       *string   `json:"poster_path,omitempty"`
-				VoteAverage      *int      `json:"vote_average,omitempty"`
+				VoteAverage *float32      `json:"vote_average,omitempty"`
 				VoteCount        *int      `json:"vote_count,omitempty"`
 			} `json:"results,omitempty"`
 			TotalPages   *int `json:"total_pages,omitempty"`
@@ -31710,7 +31713,7 @@ func ParseTvSeriesPopularListResponse(rsp *http.Response) (*TvSeriesPopularListR
 				Overview         *string   `json:"overview,omitempty"`
 				Popularity       *float32  `json:"popularity,omitempty"`
 				PosterPath       *string   `json:"poster_path,omitempty"`
-				VoteAverage      *int      `json:"vote_average,omitempty"`
+				VoteAverage *float32      `json:"vote_average,omitempty"`
 				VoteCount        *int      `json:"vote_count,omitempty"`
 			} `json:"results,omitempty"`
 			TotalPages   *int `json:"total_pages,omitempty"`
@@ -31894,7 +31897,7 @@ func ParseTvSeriesDetailsResponse(rsp *http.Response) (*TvSeriesDetailsResponse,
 				Overview     *string `json:"overview,omitempty"`
 				PosterPath   *string `json:"poster_path,omitempty"`
 				SeasonNumber *int    `json:"season_number,omitempty"`
-				VoteAverage  *int    `json:"vote_average,omitempty"`
+				VoteAverage *float32    `json:"vote_average,omitempty"`
 			} `json:"seasons,omitempty"`
 			SpokenLanguages *[]struct {
 				EnglishName *string `json:"english_name,omitempty"`
@@ -31935,9 +31938,10 @@ func ParseTvSeriesAccountStatesResponse(rsp *http.Response) (*TvSeriesAccountSta
 		var dest struct {
 			Favorite *bool `json:"favorite,omitempty"`
 			Id       *int  `json:"id,omitempty"`
-			Rated    *struct {
-				Value *int `json:"value,omitempty"`
-			} `json:"rated,omitempty"`
+			Rated *bool `json:"rated,omitempty"`
+			// Rated    *struct {
+			// 	Value *int `json:"value,omitempty"`
+			// } `json:"rated,omitempty"`
 			Watchlist *bool `json:"watchlist,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -32546,7 +32550,7 @@ func ParseTvSeasonDetailsResponse(rsp *http.Response) (*TvSeasonDetailsResponse,
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest struct {
-			Id       *string `json:"_id,omitempty"`
+			// Id       *string `json:"_id,omitempty"`
 			AirDate  *string `json:"air_date,omitempty"`
 			Episodes *[]struct {
 				AirDate *string `json:"air_date,omitempty"`
@@ -32625,9 +32629,10 @@ func ParseTvSeasonAccountStatesResponse(rsp *http.Response) (*TvSeasonAccountSta
 			Results *[]struct {
 				EpisodeNumber *int `json:"episode_number,omitempty"`
 				Id            *int `json:"id,omitempty"`
-				Rated         *struct {
-					Value *int `json:"value,omitempty"`
-				} `json:"rated,omitempty"`
+				Rated *bool `json:"rated,omitempty"`
+				// Rated         *struct {
+				// 	Value *int `json:"value,omitempty"`
+				// } `json:"rated,omitempty"`
 			} `json:"results,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -32838,9 +32843,10 @@ func ParseTvEpisodeAccountStatesResponse(rsp *http.Response) (*TvEpisodeAccountS
 		var dest struct {
 			Favorite *bool `json:"favorite,omitempty"`
 			Id       *int  `json:"id,omitempty"`
-			Rated    *struct {
-				Value *int `json:"value,omitempty"`
-			} `json:"rated,omitempty"`
+			Rated *bool `json:"rated,omitempty"`
+			// Rated         *struct {
+			// 	Value *int `json:"value,omitempty"`
+			// } `json:"rated,omitempty"`
 			Watchlist *bool `json:"watchlist,omitempty"`
 		}
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
@@ -34226,7 +34232,7 @@ func ParseTvSeriesSimilarResponse(rsp *http.Response) (*TvSeriesSimilarResponse,
 				Overview         *string   `json:"overview,omitempty"`
 				Popularity       *float32  `json:"popularity,omitempty"`
 				PosterPath       *string   `json:"poster_path,omitempty"`
-				VoteAverage      *int      `json:"vote_average,omitempty"`
+				VoteAverage *float32      `json:"vote_average,omitempty"`
 				VoteCount        *int      `json:"vote_count,omitempty"`
 			} `json:"results,omitempty"`
 			TotalPages   *int `json:"total_pages,omitempty"`
