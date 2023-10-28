@@ -9,20 +9,20 @@ VERSION=$(cat "${PWD}/.version" 2>/dev/null || echo v0)
 NAME="$1"
 SPEC="$2"
 
-rm -rf openapi
-mkdir -p openapi
-# set golang defaults for generator
-printf "go:\n  packageName: github.com/dashotv/$NAME/openapi\n  version: %s" "$VERSION" >openapi/gen.yaml
-# generate go sdk
-speakeasy generate sdk -l go -o openapi -s "./$SPEC"
-# cleanup generated mod files
-rm -rf openapi/go.*
-# remove pkg folder
-mv openapi/pkg/* openapi/
-rm -rf openapi/pkg
-# remove pkg from imports
-find ./openapi -type f -exec sed -i '.backup' "s/pkg\///g" {} \;
-find ./openapi -type f -name '*.backup' -delete
+# rm -rf openapi
+# mkdir -p openapi
+# # set golang defaults for generator
+# printf "go:\n  packageName: github.com/dashotv/$NAME/openapi\n  version: %s" "$VERSION" >openapi/gen.yaml
+# # generate go sdk
+# speakeasy generate sdk -l go -o openapi -s "./$SPEC"
+# # cleanup generated mod files
+# rm -rf openapi/go.*
+# # remove pkg folder
+# mv openapi/pkg/* openapi/
+# rm -rf openapi/pkg
+# # remove pkg from imports
+# find ./openapi -type f -exec sed -i '.backup' "s/pkg\///g" {} \;
+# find ./openapi -type f -name '*.backup' -delete
 
 # copy types to root
 {
@@ -46,14 +46,29 @@ find ./openapi -type f -name '*.backup' -delete
 } >types.go
 
 # copy functions to root
-{
-  echo "package $NAME"
-  echo
-  echo 'import ('
-  echo '	"github.com/pkg/errors"'
-  echo
-  echo '	"github.com/dashotv/'"$NAME"'/openapi/models/operations"'
-  echo ')'
-  echo
-  grep --with-filename -E '^func \(' openapi/*.go | awk -F':' '{print $2}' | "$SCRIPT_DIR/rewrite_funcs.rb"
-} >functions.go
+cat <<HERE >functions.go
+package tmdb
+
+import (
+	"github.com/pkg/errors"
+
+	"github.com/dashotv/tmdb/openapi/models/operations"
+	"github.com/dashotv/tmdb/openapi/types"
+)
+
+HERE
+cat <<HERE >functions_test.go
+package tmdb
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+
+	"github.com/dashotv/tmdb/openapi/models/operations"
+	"github.com/dashotv/tmdb/openapi/types"
+)
+
+HERE
+
+grep --with-filename -E '^func \(' openapi/*.go | awk -F':' '{print $2}' | "$SCRIPT_DIR/rewrite_funcs.rb"

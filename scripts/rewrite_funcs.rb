@@ -1,22 +1,100 @@
 #!/usr/bin/env ruby
 
-skipped = %w{
-  ConfigurationCountries
-  ConfigurationJobs
-  ConfigurationLanguages
-  ConfigurationPrimaryTranslations
-  ConfigurationTimezones
-  MovieChanges
-}
+skipped = [
+  # these weren't working
+  "ConfigurationCountries",
+  "ConfigurationJobs",
+  "ConfigurationLanguages",
+  "ConfigurationPrimaryTranslations",
+  "ConfigurationTimezones",
+  # not sure why on this one
+  "MovieChanges",
+  # these are privileged and need user auth, not supported for now
+  "AccountAddFavorite",
+  "AccountAddToWatchlist",
+  "AccountDetails",
+  "AccountFavoriteTv",
+  "AccountGetFavorites",
+  "AccountLists",
+  "AccountRatedMovies",
+  "AccountRatedTv",
+  "AccountRatedTvEpisodes",
+  "AccountWatchlistMovies",
+  "AccountWatchlistTv",
+  "MovieAccountStates",
+  "MovieAddRating",
+  "MovieDeleteRating",
+  "AlternativeNamesCopy",
+  "DetailsCopy",
+  "MovieLists",
+  "ListAddMovie",
+  "ListCheckItemStatus",
+  "ListClear",
+  "ListCreate",
+  "ListDelete",
+  "ListDetails",
+  "ListRemoveMovie",
+  "TvEpisodeAccountStates",
+  "TvEpisodeAddRating",
+  "TvEpisodeDeleteRating",
+  "TvSeasonAccountStates",
+  "TvSeriesAccountStates",
+  "TvSeriesAddRating",
+  "TvSeriesDeleteRating",
+  # these are auth related for above, not supported for now
+  "AuthenticationCreateGuestSession",
+  "AuthenticationCreateRequestToken",
+  "AuthenticationCreateSession",
+  "AuthenticationCreateSessionFromLogin",
+  "AuthenticationCreateSessionFromV4Token",
+  "AuthenticationDeleteSession",
+  "AuthenticationValidateKey",
+  "GuestSessionRatedMovies",
+  "GuestSessionRatedTv",
+  "GuestSessionRatedTvEpisodes",
+]
 
-# lines = [
-#   "func (s *artwork) GetArtworkBase(ctx context.Context, id float64) (*operations.GetArtworkBaseResponse, error) {",
-#   "func (s *artwork) GetArtworkExtended(ctx context.Context, id float64) (*operations.GetArtworkExtendedResponse, error) {",
-#   "func (s *artworkStatuses) GetAllArtworkStatuses(ctx context.Context) (*operations.GetAllArtworkStatusesResponse, error) {",
-#   "func (s *artworkTypes) GetAllArtworkTypes(ctx context.Context) (*operations.GetAllArtworkTypesResponse, error) {",
-#   "func (s *episodes) GetEpisodeExtended(ctx context.Context, id float64, meta *operations.GetEpisodeExtendedMeta) (*operations.GetEpisodeExtendedResponse, error) {",
-#   "func (s *episodes) GetEpisodeTranslation(ctx context.Context, id float64, language string) (*operations.GetEpisodeTranslationResponse, error) {",
-# ].each do |line|
+FUNC = open('functions.go', 'a+')
+TEST = open('functions_test.go', 'a+')
+
+def testVar(n, t)
+  v = testType(n, t)
+  return "// #{n} #{t}" if !v
+  return "var #{n} #{t} = #{v}" if t != v
+  return ""
+end
+
+def testType(n, t)
+  if t =~ /^operations\./
+    return t.gsub(/^operations\./, 'operations_')
+  end
+
+  case n
+  when 'movieID'
+    return t == 'string' ? '"278"' : '278'
+  when 'keywordID'
+    return t == 'string' ? '"818"' : '818'
+  when 'personID'
+    return t == 'string' ? '"31"' : '31'
+  when 'seriesID'
+    return t == 'string' ? '"1396"' : '1396'
+  when 'seasonNumber'
+    return t == 'string' ? '"1"' : '1'
+  when 'episodeNumber'
+    return t == 'string' ? '"1"' : '1'
+  # when 'request'
+  #   return "#{t}{}"
+  end
+
+  return 'nil' if t[0] == '*'
+  case t
+  when 'bool'
+    return 'false'
+  when 'float64'
+    return '0.0'
+  end
+end
+
 STDIN.each do |line|
   m = line.match(/func \(\w\s\*(\w+)\) (\w+)\(ctx context.Context(, )*([^\)]+)*\) \(\*operations\.(\w+), error\) \{/)
   #puts "\n\n"+ line
@@ -26,10 +104,12 @@ STDIN.each do |line|
   serv=m[1]
   serv[0]=serv[0].upcase # capitalize will lowercase the rest of the string
   params=""
+  testparams=""
   if !m[4].nil?
     params=", " + m[4].split(',').map{|p| p.split(' ')}.map{|p| p[0]}.join(', ')
+    testparams=m[4].split(',').map{|p| p.split(' ')}.map{|p| testVar(p[0], p[1])}.join("\t\n")
   end
-  puts <<-HERE
+  FUNC.puts <<-HERE
 // #{m[2]} wraps the generated openapi.SDK.#{m[2]} call
 func (c *Client) #{m[2]}(#{m[4]}) (*#{m[5]}, error) {
 	r, err := c.sdk.#{m[2]}(c.ctx#{params})
@@ -40,6 +120,16 @@ func (c *Client) #{m[2]}(#{m[4]}) (*#{m[5]}, error) {
 		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
 	}
 	return r.#{m[2]}200ApplicationJSONObject, nil
+}
+
+HERE
+  TEST.puts <<-HERE
+func TestClient_#{m[2]}(t *testing.T) {
+	c := testClient(t)
+	#{testparams}
+	r, err := c.#{m[2]}(#{params.split(',').drop(1).join(', ')})
+	assert.NoError(t, err)
+	assert.NotNil(t, r)
 }
 
 HERE

@@ -7,234 +7,6 @@ import (
 	"github.com/dashotv/tmdb/openapi/types"
 )
 
-// AccountAddFavorite wraps the generated openapi.SDK.AccountAddFavorite call
-func (c *Client) AccountAddFavorite(accountID int, requestBody *operations.AccountAddFavoriteRequestBody, sessionID *string) (*AccountAddFavoriteResponse, error) {
-	r, err := c.sdk.AccountAddFavorite(c.ctx, accountID, requestBody, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountAddFavorite200ApplicationJSONObject, nil
-}
-
-// AccountAddToWatchlist wraps the generated openapi.SDK.AccountAddToWatchlist call
-func (c *Client) AccountAddToWatchlist(accountID int, requestBody *operations.AccountAddToWatchlistRequestBody, sessionID *string) (*AccountAddToWatchlistResponse, error) {
-	r, err := c.sdk.AccountAddToWatchlist(c.ctx, accountID, requestBody, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountAddToWatchlist200ApplicationJSONObject, nil
-}
-
-// AccountDetails wraps the generated openapi.SDK.AccountDetails call
-func (c *Client) AccountDetails(accountID int, sessionID *string) (*AccountDetailsResponse, error) {
-	r, err := c.sdk.AccountDetails(c.ctx, accountID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountDetails200ApplicationJSONObject, nil
-}
-
-// AccountFavoriteTv wraps the generated openapi.SDK.AccountFavoriteTv call
-func (c *Client) AccountFavoriteTv(request operations.AccountFavoriteTvRequest) (*AccountFavoriteTvResponse, error) {
-	r, err := c.sdk.AccountFavoriteTv(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountFavoriteTv200ApplicationJSONObject, nil
-}
-
-// AccountGetFavorites wraps the generated openapi.SDK.AccountGetFavorites call
-func (c *Client) AccountGetFavorites(request operations.AccountGetFavoritesRequest) (*AccountGetFavoritesResponse, error) {
-	r, err := c.sdk.AccountGetFavorites(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountGetFavorites200ApplicationJSONObject, nil
-}
-
-// AccountLists wraps the generated openapi.SDK.AccountLists call
-func (c *Client) AccountLists(accountID int, page *int, sessionID *string) (*AccountListsResponse, error) {
-	r, err := c.sdk.AccountLists(c.ctx, accountID, page, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountLists200ApplicationJSONObject, nil
-}
-
-// AccountRatedMovies wraps the generated openapi.SDK.AccountRatedMovies call
-func (c *Client) AccountRatedMovies(request operations.AccountRatedMoviesRequest) (*AccountRatedMoviesResponse, error) {
-	r, err := c.sdk.AccountRatedMovies(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountRatedMovies200ApplicationJSONObject, nil
-}
-
-// AccountRatedTv wraps the generated openapi.SDK.AccountRatedTv call
-func (c *Client) AccountRatedTv(request operations.AccountRatedTvRequest) (*AccountRatedTvResponse, error) {
-	r, err := c.sdk.AccountRatedTv(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountRatedTv200ApplicationJSONObject, nil
-}
-
-// AccountRatedTvEpisodes wraps the generated openapi.SDK.AccountRatedTvEpisodes call
-func (c *Client) AccountRatedTvEpisodes(request operations.AccountRatedTvEpisodesRequest) (*AccountRatedTvEpisodesResponse, error) {
-	r, err := c.sdk.AccountRatedTvEpisodes(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountRatedTvEpisodes200ApplicationJSONObject, nil
-}
-
-// AccountWatchlistMovies wraps the generated openapi.SDK.AccountWatchlistMovies call
-func (c *Client) AccountWatchlistMovies(request operations.AccountWatchlistMoviesRequest) (*AccountWatchlistMoviesResponse, error) {
-	r, err := c.sdk.AccountWatchlistMovies(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountWatchlistMovies200ApplicationJSONObject, nil
-}
-
-// AccountWatchlistTv wraps the generated openapi.SDK.AccountWatchlistTv call
-func (c *Client) AccountWatchlistTv(request operations.AccountWatchlistTvRequest) (*AccountWatchlistTvResponse, error) {
-	r, err := c.sdk.AccountWatchlistTv(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AccountWatchlistTv200ApplicationJSONObject, nil
-}
-
-// AlternativeNamesCopy wraps the generated openapi.SDK.AlternativeNamesCopy call
-func (c *Client) AlternativeNamesCopy(networkID int) (*AlternativeNamesCopyResponse, error) {
-	r, err := c.sdk.AlternativeNamesCopy(c.ctx, networkID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AlternativeNamesCopy200ApplicationJSONObject, nil
-}
-
-// AuthenticationCreateGuestSession wraps the generated openapi.SDK.AuthenticationCreateGuestSession call
-func (c *Client) AuthenticationCreateGuestSession() (*AuthenticationCreateGuestSessionResponse, error) {
-	r, err := c.sdk.AuthenticationCreateGuestSession(c.ctx)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AuthenticationCreateGuestSession200ApplicationJSONObject, nil
-}
-
-// AuthenticationCreateRequestToken wraps the generated openapi.SDK.AuthenticationCreateRequestToken call
-func (c *Client) AuthenticationCreateRequestToken() (*AuthenticationCreateRequestTokenResponse, error) {
-	r, err := c.sdk.AuthenticationCreateRequestToken(c.ctx)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AuthenticationCreateRequestToken200ApplicationJSONObject, nil
-}
-
-// AuthenticationCreateSession wraps the generated openapi.SDK.AuthenticationCreateSession call
-func (c *Client) AuthenticationCreateSession(request *operations.AuthenticationCreateSessionRequestBody) (*AuthenticationCreateSessionResponse, error) {
-	r, err := c.sdk.AuthenticationCreateSession(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AuthenticationCreateSession200ApplicationJSONObject, nil
-}
-
-// AuthenticationCreateSessionFromLogin wraps the generated openapi.SDK.AuthenticationCreateSessionFromLogin call
-func (c *Client) AuthenticationCreateSessionFromLogin(request *operations.AuthenticationCreateSessionFromLoginRequestBody) (*AuthenticationCreateSessionFromLoginResponse, error) {
-	r, err := c.sdk.AuthenticationCreateSessionFromLogin(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AuthenticationCreateSessionFromLogin200ApplicationJSONObject, nil
-}
-
-// AuthenticationCreateSessionFromV4Token wraps the generated openapi.SDK.AuthenticationCreateSessionFromV4Token call
-func (c *Client) AuthenticationCreateSessionFromV4Token(request *operations.AuthenticationCreateSessionFromV4TokenRequestBody) (*AuthenticationCreateSessionFromV4TokenResponse, error) {
-	r, err := c.sdk.AuthenticationCreateSessionFromV4Token(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AuthenticationCreateSessionFromV4Token200ApplicationJSONObject, nil
-}
-
-// AuthenticationDeleteSession wraps the generated openapi.SDK.AuthenticationDeleteSession call
-func (c *Client) AuthenticationDeleteSession(request *operations.AuthenticationDeleteSessionRequestBody) (*AuthenticationDeleteSessionResponse, error) {
-	r, err := c.sdk.AuthenticationDeleteSession(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AuthenticationDeleteSession200ApplicationJSONObject, nil
-}
-
-// AuthenticationValidateKey wraps the generated openapi.SDK.AuthenticationValidateKey call
-func (c *Client) AuthenticationValidateKey() (*AuthenticationValidateKeyResponse, error) {
-	r, err := c.sdk.AuthenticationValidateKey(c.ctx)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.AuthenticationValidateKey200ApplicationJSONObject, nil
-}
-
 // CertificationMovieList wraps the generated openapi.SDK.CertificationMovieList call
 func (c *Client) CertificationMovieList() (*CertificationMovieListResponse, error) {
 	r, err := c.sdk.CertificationMovieList(c.ctx)
@@ -391,18 +163,6 @@ func (c *Client) CreditDetails(creditID string) (*CreditDetailsResponse, error) 
 	return r.CreditDetails200ApplicationJSONObject, nil
 }
 
-// DetailsCopy wraps the generated openapi.SDK.DetailsCopy call
-func (c *Client) DetailsCopy(networkID int) (*DetailsCopyResponse, error) {
-	r, err := c.sdk.DetailsCopy(c.ctx, networkID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.DetailsCopy200ApplicationJSONObject, nil
-}
-
 // DiscoverMovie wraps the generated openapi.SDK.DiscoverMovie call
 func (c *Client) DiscoverMovie(request operations.DiscoverMovieRequest) (*DiscoverMovieResponse, error) {
 	r, err := c.sdk.DiscoverMovie(c.ctx, request)
@@ -463,42 +223,6 @@ func (c *Client) GenreTvList(language *string) (*GenreTvListResponse, error) {
 	return r.GenreTvList200ApplicationJSONObject, nil
 }
 
-// GuestSessionRatedMovies wraps the generated openapi.SDK.GuestSessionRatedMovies call
-func (c *Client) GuestSessionRatedMovies(guestSessionID string, language *string, page *int, sortBy *operations.GuestSessionRatedMoviesSortBy) (*GuestSessionRatedMoviesResponse, error) {
-	r, err := c.sdk.GuestSessionRatedMovies(c.ctx, guestSessionID, language, page, sortBy)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.GuestSessionRatedMovies200ApplicationJSONObject, nil
-}
-
-// GuestSessionRatedTv wraps the generated openapi.SDK.GuestSessionRatedTv call
-func (c *Client) GuestSessionRatedTv(guestSessionID string, language *string, page *int, sortBy *operations.GuestSessionRatedTvSortBy) (*GuestSessionRatedTvResponse, error) {
-	r, err := c.sdk.GuestSessionRatedTv(c.ctx, guestSessionID, language, page, sortBy)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.GuestSessionRatedTv200ApplicationJSONObject, nil
-}
-
-// GuestSessionRatedTvEpisodes wraps the generated openapi.SDK.GuestSessionRatedTvEpisodes call
-func (c *Client) GuestSessionRatedTvEpisodes(guestSessionID string, language *string, page *int, sortBy *operations.GuestSessionRatedTvEpisodesSortBy) (*GuestSessionRatedTvEpisodesResponse, error) {
-	r, err := c.sdk.GuestSessionRatedTvEpisodes(c.ctx, guestSessionID, language, page, sortBy)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.GuestSessionRatedTvEpisodes200ApplicationJSONObject, nil
-}
-
 // KeywordDetails wraps the generated openapi.SDK.KeywordDetails call
 func (c *Client) KeywordDetails(keywordID int) (*KeywordDetailsResponse, error) {
 	r, err := c.sdk.KeywordDetails(c.ctx, keywordID)
@@ -523,114 +247,6 @@ func (c *Client) KeywordMovies(keywordID string, includeAdult *bool, language *s
 	return r.KeywordMovies200ApplicationJSONObject, nil
 }
 
-// ListAddMovie wraps the generated openapi.SDK.ListAddMovie call
-func (c *Client) ListAddMovie(listID int, sessionID string, requestBody *operations.ListAddMovieRequestBody) (*ListAddMovieResponse, error) {
-	r, err := c.sdk.ListAddMovie(c.ctx, listID, sessionID, requestBody)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.ListAddMovie200ApplicationJSONObject, nil
-}
-
-// ListCheckItemStatus wraps the generated openapi.SDK.ListCheckItemStatus call
-func (c *Client) ListCheckItemStatus(listID int, language *string, movieID *int) (*ListCheckItemStatusResponse, error) {
-	r, err := c.sdk.ListCheckItemStatus(c.ctx, listID, language, movieID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.ListCheckItemStatus200ApplicationJSONObject, nil
-}
-
-// ListClear wraps the generated openapi.SDK.ListClear call
-func (c *Client) ListClear(confirm bool, listID int, sessionID string) (*ListClearResponse, error) {
-	r, err := c.sdk.ListClear(c.ctx, confirm, listID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.ListClear200ApplicationJSONObject, nil
-}
-
-// ListCreate wraps the generated openapi.SDK.ListCreate call
-func (c *Client) ListCreate(sessionID string, requestBody *operations.ListCreateRequestBody) (*ListCreateResponse, error) {
-	r, err := c.sdk.ListCreate(c.ctx, sessionID, requestBody)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.ListCreate200ApplicationJSONObject, nil
-}
-
-// ListDelete wraps the generated openapi.SDK.ListDelete call
-func (c *Client) ListDelete(listID int, sessionID string) (*ListDeleteResponse, error) {
-	r, err := c.sdk.ListDelete(c.ctx, listID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.ListDelete200ApplicationJSONObject, nil
-}
-
-// ListDetails wraps the generated openapi.SDK.ListDetails call
-func (c *Client) ListDetails(listID int, language *string) (*ListDetailsResponse, error) {
-	r, err := c.sdk.ListDetails(c.ctx, listID, language)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.ListDetails200ApplicationJSONObject, nil
-}
-
-// ListRemoveMovie wraps the generated openapi.SDK.ListRemoveMovie call
-func (c *Client) ListRemoveMovie(listID int, sessionID string, requestBody *operations.ListRemoveMovieRequestBody) (*ListRemoveMovieResponse, error) {
-	r, err := c.sdk.ListRemoveMovie(c.ctx, listID, sessionID, requestBody)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.ListRemoveMovie200ApplicationJSONObject, nil
-}
-
-// MovieAccountStates wraps the generated openapi.SDK.MovieAccountStates call
-func (c *Client) MovieAccountStates(movieID int, guestSessionID *string, sessionID *string) (*MovieAccountStatesResponse, error) {
-	r, err := c.sdk.MovieAccountStates(c.ctx, movieID, guestSessionID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.MovieAccountStates200ApplicationJSONObject, nil
-}
-
-// MovieAddRating wraps the generated openapi.SDK.MovieAddRating call
-func (c *Client) MovieAddRating(movieID int, requestBody *operations.MovieAddRatingRequestBody, guestSessionID *string, sessionID *string) (*MovieAddRatingResponse, error) {
-	r, err := c.sdk.MovieAddRating(c.ctx, movieID, requestBody, guestSessionID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.MovieAddRating200ApplicationJSONObject, nil
-}
-
 // MovieAlternativeTitles wraps the generated openapi.SDK.MovieAlternativeTitles call
 func (c *Client) MovieAlternativeTitles(movieID int, country *string) (*MovieAlternativeTitlesResponse, error) {
 	r, err := c.sdk.MovieAlternativeTitles(c.ctx, movieID, country)
@@ -653,18 +269,6 @@ func (c *Client) MovieCredits(movieID int, language *string) (*MovieCreditsRespo
 		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
 	}
 	return r.MovieCredits200ApplicationJSONObject, nil
-}
-
-// MovieDeleteRating wraps the generated openapi.SDK.MovieDeleteRating call
-func (c *Client) MovieDeleteRating(movieID int, guestSessionID *string, sessionID *string) (*MovieDeleteRatingResponse, error) {
-	r, err := c.sdk.MovieDeleteRating(c.ctx, movieID, guestSessionID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.MovieDeleteRating200ApplicationJSONObject, nil
 }
 
 // MovieDetails wraps the generated openapi.SDK.MovieDetails call
@@ -725,18 +329,6 @@ func (c *Client) MovieLatestID() (*MovieLatestIDResponse, error) {
 		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
 	}
 	return r.MovieLatestID200ApplicationJSONObject, nil
-}
-
-// MovieLists wraps the generated openapi.SDK.MovieLists call
-func (c *Client) MovieLists(movieID int, language *string, page *int) (*MovieListsResponse, error) {
-	r, err := c.sdk.MovieLists(c.ctx, movieID, language, page)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.MovieLists200ApplicationJSONObject, nil
 }
 
 // MovieNowPlayingList wraps the generated openapi.SDK.MovieNowPlayingList call
@@ -1159,30 +751,6 @@ func (c *Client) TrendingTv(timeWindow operations.TrendingTvTimeWindow, language
 	return r.TrendingTv200ApplicationJSONObject, nil
 }
 
-// TvEpisodeAccountStates wraps the generated openapi.SDK.TvEpisodeAccountStates call
-func (c *Client) TvEpisodeAccountStates(request operations.TvEpisodeAccountStatesRequest) (*TvEpisodeAccountStatesResponse, error) {
-	r, err := c.sdk.TvEpisodeAccountStates(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvEpisodeAccountStates200ApplicationJSONObject, nil
-}
-
-// TvEpisodeAddRating wraps the generated openapi.SDK.TvEpisodeAddRating call
-func (c *Client) TvEpisodeAddRating(request operations.TvEpisodeAddRatingRequest) (*TvEpisodeAddRatingResponse, error) {
-	r, err := c.sdk.TvEpisodeAddRating(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvEpisodeAddRating200ApplicationJSONObject, nil
-}
-
 // TvEpisodeChangesByID wraps the generated openapi.SDK.TvEpisodeChangesByID call
 func (c *Client) TvEpisodeChangesByID(episodeID int) (*TvEpisodeChangesByIDResponse, error) {
 	r, err := c.sdk.TvEpisodeChangesByID(c.ctx, episodeID)
@@ -1205,18 +773,6 @@ func (c *Client) TvEpisodeCredits(episodeNumber int, seasonNumber int, seriesID 
 		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
 	}
 	return r.TvEpisodeCredits200ApplicationJSONObject, nil
-}
-
-// TvEpisodeDeleteRating wraps the generated openapi.SDK.TvEpisodeDeleteRating call
-func (c *Client) TvEpisodeDeleteRating(request operations.TvEpisodeDeleteRatingRequest) (*TvEpisodeDeleteRatingResponse, error) {
-	r, err := c.sdk.TvEpisodeDeleteRating(c.ctx, request)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvEpisodeDeleteRating200ApplicationJSONObject, nil
 }
 
 // TvEpisodeDetails wraps the generated openapi.SDK.TvEpisodeDetails call
@@ -1289,18 +845,6 @@ func (c *Client) TvEpisodeVideos(request operations.TvEpisodeVideosRequest) (*Tv
 		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
 	}
 	return r.TvEpisodeVideos200ApplicationJSONObject, nil
-}
-
-// TvSeasonAccountStates wraps the generated openapi.SDK.TvSeasonAccountStates call
-func (c *Client) TvSeasonAccountStates(seasonNumber int, seriesID int, guestSessionID *string, sessionID *string) (*TvSeasonAccountStatesResponse, error) {
-	r, err := c.sdk.TvSeasonAccountStates(c.ctx, seasonNumber, seriesID, guestSessionID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvSeasonAccountStates200ApplicationJSONObject, nil
 }
 
 // TvSeasonAggregateCredits wraps the generated openapi.SDK.TvSeasonAggregateCredits call
@@ -1411,30 +955,6 @@ func (c *Client) TvSeasonWatchProviders(seasonNumber int, seriesID int, language
 	return r.TvSeasonWatchProviders200ApplicationJSONObject, nil
 }
 
-// TvSeriesAccountStates wraps the generated openapi.SDK.TvSeriesAccountStates call
-func (c *Client) TvSeriesAccountStates(seriesID int, guestSessionID *string, sessionID *string) (*TvSeriesAccountStatesResponse, error) {
-	r, err := c.sdk.TvSeriesAccountStates(c.ctx, seriesID, guestSessionID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvSeriesAccountStates200ApplicationJSONObject, nil
-}
-
-// TvSeriesAddRating wraps the generated openapi.SDK.TvSeriesAddRating call
-func (c *Client) TvSeriesAddRating(seriesID int, requestBody *operations.TvSeriesAddRatingRequestBody, guestSessionID *string, sessionID *string) (*TvSeriesAddRatingResponse, error) {
-	r, err := c.sdk.TvSeriesAddRating(c.ctx, seriesID, requestBody, guestSessionID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvSeriesAddRating200ApplicationJSONObject, nil
-}
-
 // TvSeriesAggregateCredits wraps the generated openapi.SDK.TvSeriesAggregateCredits call
 func (c *Client) TvSeriesAggregateCredits(seriesID int, language *string) (*TvSeriesAggregateCreditsResponse, error) {
 	r, err := c.sdk.TvSeriesAggregateCredits(c.ctx, seriesID, language)
@@ -1505,18 +1025,6 @@ func (c *Client) TvSeriesCredits(seriesID int, language *string) (*TvSeriesCredi
 		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
 	}
 	return r.TvSeriesCredits200ApplicationJSONObject, nil
-}
-
-// TvSeriesDeleteRating wraps the generated openapi.SDK.TvSeriesDeleteRating call
-func (c *Client) TvSeriesDeleteRating(seriesID int, guestSessionID *string, sessionID *string) (*TvSeriesDeleteRatingResponse, error) {
-	r, err := c.sdk.TvSeriesDeleteRating(c.ctx, seriesID, guestSessionID, sessionID)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvSeriesDeleteRating200ApplicationJSONObject, nil
 }
 
 // TvSeriesDetails wraps the generated openapi.SDK.TvSeriesDetails call
@@ -1746,3 +1254,4 @@ func (c *Client) WatchProvidersMovieList(language *string, watchRegion *string) 
 	}
 	return r.WatchProvidersMovieList200ApplicationJSONObject, nil
 }
+
