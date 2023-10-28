@@ -1,0 +1,11 @@
+# MovieReviews200ApplicationJSONResultsAuthorDetails
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              | Example                                                                  |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `AvatarPath`                                                             | **string*                                                                | :heavy_minus_sign:                                                       | N/A                                                                      | /https://secure.gravatar.com/avatar/f248ec34f953bc62cafcbdd81fddd6b6.jpg |
+| `Name`                                                                   | **string*                                                                | :heavy_minus_sign:                                                       | N/A                                                                      |                                                                          |
+| `Rating`                                                                 | *interface{}*                                                            | :heavy_minus_sign:                                                       | N/A                                                                      |                                                                          |
+| `Username`                                                               | **string*                                                                | :heavy_minus_sign:                                                       | N/A                                                                      | Goddard                                                                  |

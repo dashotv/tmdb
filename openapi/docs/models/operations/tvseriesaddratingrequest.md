@@ -1,0 +1,11 @@
+# TvSeriesAddRatingRequest
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `SeriesID`                                                                               | *int*                                                                                    | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `RequestBody`                                                                            | [*TvSeriesAddRatingRequestBody](../../models/operations/tvseriesaddratingrequestbody.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `GuestSessionID`                                                                         | **string*                                                                                | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `SessionID`                                                                              | **string*                                                                                | :heavy_minus_sign:                                                                       | N/A                                                                                      |

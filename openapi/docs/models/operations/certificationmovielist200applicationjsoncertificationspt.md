@@ -1,0 +1,10 @@
+# CertificationMovieList200ApplicationJSONCertificationsPT
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `Certification`                                                             | **string*                                                                   | :heavy_minus_sign:                                                          | N/A                                                                         | Públicos                                                                    |
+| `Meaning`                                                                   | **string*                                                                   | :heavy_minus_sign:                                                          | N/A                                                                         | For all the public (especially designed for children under 3 years of age). |
+| `Order`                                                                     | **int64*                                                                    | :heavy_minus_sign:                                                          | N/A                                                                         | 1                                                                           |

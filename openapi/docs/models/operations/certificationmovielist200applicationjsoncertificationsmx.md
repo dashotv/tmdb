@@ -1,0 +1,10 @@
+# CertificationMovieList200ApplicationJSONCertificationsMX
+
+
+## Fields
+
+| Field                                                               | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `Certification`                                                     | **string*                                                           | :heavy_minus_sign:                                                  | N/A                                                                 | AA                                                                  |
+| `Meaning`                                                           | **string*                                                           | :heavy_minus_sign:                                                  | N/A                                                                 | Informative-only rating: Understandable for children under 7 years. |
+| `Order`                                                             | **int64*                                                            | :heavy_minus_sign:                                                  | N/A                                                                 | 1                                                                   |

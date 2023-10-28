@@ -1,0 +1,12 @@
+# TvEpisodeVideosRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `EpisodeNumber`                                                                    | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `IncludeVideoLanguage`                                                             | **string*                                                                          | :heavy_minus_sign:                                                                 | filter the list results by language, supports more than one value by using a comma |
+| `Language`                                                                         | **string*                                                                          | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `SeasonNumber`                                                                     | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `SeriesID`                                                                         | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |

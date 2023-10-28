@@ -1,0 +1,11 @@
+# GuestSessionRatedMoviesRequest
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `GuestSessionID`                                                                           | *string*                                                                                   | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `Language`                                                                                 | **string*                                                                                  | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `Page`                                                                                     | **int*                                                                                     | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `SortBy`                                                                                   | [*GuestSessionRatedMoviesSortBy](../../models/operations/guestsessionratedmoviessortby.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |

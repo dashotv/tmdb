@@ -1,0 +1,11 @@
+# GuestSessionRatedTvRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `GuestSessionID`                                                                   | *string*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `Language`                                                                         | **string*                                                                          | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `Page`                                                                             | **int*                                                                             | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `SortBy`                                                                           | [*GuestSessionRatedTvSortBy](../../models/operations/guestsessionratedtvsortby.md) | :heavy_minus_sign:                                                                 | N/A                                                                                |

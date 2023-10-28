@@ -1,0 +1,17 @@
+# TvEpisodeVideos200ApplicationJSONResults
+
+
+## Fields
+
+| Field                                              | Type                                               | Required                                           | Description                                        | Example                                            |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| `ID`                                               | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | 5ce71a920e0a265ac0cfe497                           |
+| `Iso31661`                                         | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | US                                                 |
+| `Iso6391`                                          | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | en                                                 |
+| `Key`                                              | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | e0Y8KpQpW8c                                        |
+| `Name`                                             | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | Game Of Thrones - Season 1 Recap - Official HBO UK |
+| `Official`                                         | **bool*                                            | :heavy_minus_sign:                                 | N/A                                                | true                                               |
+| `PublishedAt`                                      | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | 2015-05-19T16:31:23.000Z                           |
+| `Site`                                             | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | YouTube                                            |
+| `Size`                                             | **int64*                                           | :heavy_minus_sign:                                 | N/A                                                | 1080                                               |
+| `Type`                                             | **string*                                          | :heavy_minus_sign:                                 | N/A                                                | Recap                                              |

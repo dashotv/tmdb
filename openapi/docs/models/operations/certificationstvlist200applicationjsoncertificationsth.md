@@ -1,0 +1,10 @@
+# CertificationsTvList200ApplicationJSONCertificationsTH
+
+
+## Fields
+
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `Certification`                                                        | **string*                                                              | :heavy_minus_sign:                                                     | N/A                                                                    | ส                                                                      |
+| `Meaning`                                                              | **string*                                                              | :heavy_minus_sign:                                                     | N/A                                                                    | Sor - Educational movies which the public should be encouraged to see. |
+| `Order`                                                                | **int64*                                                               | :heavy_minus_sign:                                                     | N/A                                                                    | 1                                                                      |

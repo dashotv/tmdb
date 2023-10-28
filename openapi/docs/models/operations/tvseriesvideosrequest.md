@@ -1,0 +1,10 @@
+# TvSeriesVideosRequest
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `SeriesID`                                                                         | *int*                                                                              | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `IncludeVideoLanguage`                                                             | **string*                                                                          | :heavy_minus_sign:                                                                 | filter the list results by language, supports more than one value by using a comma |
+| `Language`                                                                         | **string*                                                                          | :heavy_minus_sign:                                                                 | N/A                                                                                |

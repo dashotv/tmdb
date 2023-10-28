@@ -1,0 +1,10 @@
+# CertificationsTvList200ApplicationJSONCertificationsIL
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `Certification`                                                                | **string*                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            | E                                                                              |
+| `Meaning`                                                                      | **string*                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            | Exempt from classification. This rating is usually applied to live broadcasts. |
+| `Order`                                                                        | **int64*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            | 1                                                                              |
