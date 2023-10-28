@@ -78,7 +78,7 @@ type MovieUpcomingList200ApplicationJSONResults struct {
 	ReleaseDate      *string  `json:"release_date,omitempty"`
 	Title            *string  `json:"title,omitempty"`
 	Video            *bool    `default:"true" json:"video"`
-	VoteAverage      *int64   `default:"0" json:"vote_average"`
+	VoteAverage      *float64 `default:"0" json:"vote_average"`
 	VoteCount        *int64   `default:"0" json:"vote_count"`
 }
 
@@ -177,7 +177,7 @@ func (o *MovieUpcomingList200ApplicationJSONResults) GetVideo() *bool {
 	return o.Video
 }
 
-func (o *MovieUpcomingList200ApplicationJSONResults) GetVoteAverage() *int64 {
+func (o *MovieUpcomingList200ApplicationJSONResults) GetVoteAverage() *float64 {
 	if o == nil {
 		return nil
 	}

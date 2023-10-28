@@ -12,4 +12,4 @@
 | `Overview`                       | **string*                        | :heavy_minus_sign:               | N/A                              |                                  |
 | `PosterPath`                     | **string*                        | :heavy_minus_sign:               | N/A                              | /kMTcwNRfFKCZ0O2OaBZS0nZ2AIe.jpg |
 | `SeasonNumber`                   | **int64*                         | :heavy_minus_sign:               | N/A                              | 0                                |
-| `VoteAverage`                    | **int64*                         | :heavy_minus_sign:               | N/A                              | 0                                |
+| `VoteAverage`                    | **float64*                       | :heavy_minus_sign:               | N/A                              | 0                                |

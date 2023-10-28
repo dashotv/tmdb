@@ -15,5 +15,5 @@
 | `SeasonNumber`     | **int64*           | :heavy_minus_sign: | N/A                | 1                  |
 | `ShowID`           | **int64*           | :heavy_minus_sign: | N/A                | 225491             |
 | `StillPath`        | *interface{}*      | :heavy_minus_sign: | N/A                |                    |
-| `VoteAverage`      | **int64*           | :heavy_minus_sign: | N/A                | 0                  |
+| `VoteAverage`      | **float64*         | :heavy_minus_sign: | N/A                | 0                  |
 | `VoteCount`        | **int64*           | :heavy_minus_sign: | N/A                | 0                  |

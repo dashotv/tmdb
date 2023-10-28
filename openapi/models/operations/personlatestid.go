@@ -21,7 +21,7 @@ type PersonLatestID200ApplicationJSON struct {
 	KnownForDepartment interface{}   `json:"known_for_department,omitempty"`
 	Name               *string       `json:"name,omitempty"`
 	PlaceOfBirth       interface{}   `json:"place_of_birth,omitempty"`
-	Popularity         *int64        `default:"0" json:"popularity"`
+	Popularity         *float64      `default:"0" json:"popularity"`
 	ProfilePath        interface{}   `json:"profile_path,omitempty"`
 }
 
@@ -120,7 +120,7 @@ func (o *PersonLatestID200ApplicationJSON) GetPlaceOfBirth() interface{} {
 	return o.PlaceOfBirth
 }
 
-func (o *PersonLatestID200ApplicationJSON) GetPopularity() *int64 {
+func (o *PersonLatestID200ApplicationJSON) GetPopularity() *float64 {
 	if o == nil {
 		return nil
 	}

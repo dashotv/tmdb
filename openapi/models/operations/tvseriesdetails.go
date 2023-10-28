@@ -352,14 +352,14 @@ func (o *TvSeriesDetails200ApplicationJSONProductionCountries) GetName() *string
 }
 
 type TvSeriesDetails200ApplicationJSONSeasons struct {
-	AirDate      *string `json:"air_date,omitempty"`
-	EpisodeCount *int64  `default:"0" json:"episode_count"`
-	ID           *int64  `default:"0" json:"id"`
-	Name         *string `json:"name,omitempty"`
-	Overview     *string `json:"overview,omitempty"`
-	PosterPath   *string `json:"poster_path,omitempty"`
-	SeasonNumber *int64  `default:"0" json:"season_number"`
-	VoteAverage  *int64  `default:"0" json:"vote_average"`
+	AirDate      *string  `json:"air_date,omitempty"`
+	EpisodeCount *int64   `default:"0" json:"episode_count"`
+	ID           *int64   `default:"0" json:"id"`
+	Name         *string  `json:"name,omitempty"`
+	Overview     *string  `json:"overview,omitempty"`
+	PosterPath   *string  `json:"poster_path,omitempty"`
+	SeasonNumber *int64   `default:"0" json:"season_number"`
+	VoteAverage  *float64 `default:"0" json:"vote_average"`
 }
 
 func (t TvSeriesDetails200ApplicationJSONSeasons) MarshalJSON() ([]byte, error) {
@@ -422,7 +422,7 @@ func (o *TvSeriesDetails200ApplicationJSONSeasons) GetSeasonNumber() *int64 {
 	return o.SeasonNumber
 }
 
-func (o *TvSeriesDetails200ApplicationJSONSeasons) GetVoteAverage() *int64 {
+func (o *TvSeriesDetails200ApplicationJSONSeasons) GetVoteAverage() *float64 {
 	if o == nil {
 		return nil
 	}

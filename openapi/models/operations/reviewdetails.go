@@ -19,10 +19,10 @@ func (o *ReviewDetailsRequest) GetReviewID() string {
 }
 
 type ReviewDetails200ApplicationJSONAuthorDetails struct {
-	AvatarPath *string `json:"avatar_path,omitempty"`
-	Name       *string `json:"name,omitempty"`
-	Rating     *int64  `default:"0" json:"rating"`
-	Username   *string `json:"username,omitempty"`
+	AvatarPath *string  `json:"avatar_path,omitempty"`
+	Name       *string  `json:"name,omitempty"`
+	Rating     *float64 `default:"0" json:"rating"`
+	Username   *string  `json:"username,omitempty"`
 }
 
 func (r ReviewDetails200ApplicationJSONAuthorDetails) MarshalJSON() ([]byte, error) {
@@ -50,7 +50,7 @@ func (o *ReviewDetails200ApplicationJSONAuthorDetails) GetName() *string {
 	return o.Name
 }
 
-func (o *ReviewDetails200ApplicationJSONAuthorDetails) GetRating() *int64 {
+func (o *ReviewDetails200ApplicationJSONAuthorDetails) GetRating() *float64 {
 	if o == nil {
 		return nil
 	}

@@ -20,7 +20,7 @@ type MovieLatestID200ApplicationJSON struct {
 	OriginalLanguage    *string       `json:"original_language,omitempty"`
 	OriginalTitle       *string       `json:"original_title,omitempty"`
 	Overview            *string       `json:"overview,omitempty"`
-	Popularity          *int64        `default:"0" json:"popularity"`
+	Popularity          *float64      `default:"0" json:"popularity"`
 	PosterPath          interface{}   `json:"poster_path,omitempty"`
 	ProductionCompanies []interface{} `json:"production_companies,omitempty"`
 	ProductionCountries []interface{} `json:"production_countries,omitempty"`
@@ -32,7 +32,7 @@ type MovieLatestID200ApplicationJSON struct {
 	Tagline             *string       `json:"tagline,omitempty"`
 	Title               *string       `json:"title,omitempty"`
 	Video               *bool         `default:"true" json:"video"`
-	VoteAverage         *int64        `default:"0" json:"vote_average"`
+	VoteAverage         *float64      `default:"0" json:"vote_average"`
 	VoteCount           *int64        `default:"0" json:"vote_count"`
 }
 
@@ -124,7 +124,7 @@ func (o *MovieLatestID200ApplicationJSON) GetOverview() *string {
 	return o.Overview
 }
 
-func (o *MovieLatestID200ApplicationJSON) GetPopularity() *int64 {
+func (o *MovieLatestID200ApplicationJSON) GetPopularity() *float64 {
 	if o == nil {
 		return nil
 	}
@@ -208,7 +208,7 @@ func (o *MovieLatestID200ApplicationJSON) GetVideo() *bool {
 	return o.Video
 }
 
-func (o *MovieLatestID200ApplicationJSON) GetVoteAverage() *int64 {
+func (o *MovieLatestID200ApplicationJSON) GetVoteAverage() *float64 {
 	if o == nil {
 		return nil
 	}

@@ -46,10 +46,10 @@ func (o *TvSeriesReviewsRequest) GetPage() *int {
 }
 
 type TvSeriesReviews200ApplicationJSONResultsAuthorDetails struct {
-	AvatarPath *string `json:"avatar_path,omitempty"`
-	Name       *string `json:"name,omitempty"`
-	Rating     *int64  `default:"0" json:"rating"`
-	Username   *string `json:"username,omitempty"`
+	AvatarPath *string  `json:"avatar_path,omitempty"`
+	Name       *string  `json:"name,omitempty"`
+	Rating     *float64 `default:"0" json:"rating"`
+	Username   *string  `json:"username,omitempty"`
 }
 
 func (t TvSeriesReviews200ApplicationJSONResultsAuthorDetails) MarshalJSON() ([]byte, error) {
@@ -77,7 +77,7 @@ func (o *TvSeriesReviews200ApplicationJSONResultsAuthorDetails) GetName() *strin
 	return o.Name
 }
 
-func (o *TvSeriesReviews200ApplicationJSONResultsAuthorDetails) GetRating() *int64 {
+func (o *TvSeriesReviews200ApplicationJSONResultsAuthorDetails) GetRating() *float64 {
 	if o == nil {
 		return nil
 	}

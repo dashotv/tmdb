@@ -49,7 +49,7 @@ type TvSeriesPopularList200ApplicationJSONResults struct {
 	Overview         *string  `json:"overview,omitempty"`
 	Popularity       *float64 `default:"0" json:"popularity"`
 	PosterPath       *string  `json:"poster_path,omitempty"`
-	VoteAverage      *int64   `default:"0" json:"vote_average"`
+	VoteAverage      *float64 `default:"0" json:"vote_average"`
 	VoteCount        *int64   `default:"0" json:"vote_count"`
 }
 
@@ -141,7 +141,7 @@ func (o *TvSeriesPopularList200ApplicationJSONResults) GetPosterPath() *string {
 	return o.PosterPath
 }
 
-func (o *TvSeriesPopularList200ApplicationJSONResults) GetVoteAverage() *int64 {
+func (o *TvSeriesPopularList200ApplicationJSONResults) GetVoteAverage() *float64 {
 	if o == nil {
 		return nil
 	}

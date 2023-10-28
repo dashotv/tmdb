@@ -19,5 +19,5 @@
 | `KnownForDepartment` | *interface{}*        | :heavy_minus_sign:   | N/A                  |                      |
 | `Name`               | **string*            | :heavy_minus_sign:   | N/A                  | Ángel Cruz           |
 | `PlaceOfBirth`       | *interface{}*        | :heavy_minus_sign:   | N/A                  |                      |
-| `Popularity`         | **int64*             | :heavy_minus_sign:   | N/A                  | 0                    |
+| `Popularity`         | **float64*           | :heavy_minus_sign:   | N/A                  | 0                    |
 | `ProfilePath`        | *interface{}*        | :heavy_minus_sign:   | N/A                  |                      |

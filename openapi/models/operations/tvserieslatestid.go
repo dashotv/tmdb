@@ -18,7 +18,7 @@ type TvSeriesLatestID200ApplicationJSONLastEpisodeToAir struct {
 	SeasonNumber   *int64      `default:"0" json:"season_number"`
 	ShowID         *int64      `default:"0" json:"show_id"`
 	StillPath      interface{} `json:"still_path,omitempty"`
-	VoteAverage    *int64      `default:"0" json:"vote_average"`
+	VoteAverage    *float64    `default:"0" json:"vote_average"`
 	VoteCount      *int64      `default:"0" json:"vote_count"`
 }
 
@@ -103,7 +103,7 @@ func (o *TvSeriesLatestID200ApplicationJSONLastEpisodeToAir) GetStillPath() inte
 	return o.StillPath
 }
 
-func (o *TvSeriesLatestID200ApplicationJSONLastEpisodeToAir) GetVoteAverage() *int64 {
+func (o *TvSeriesLatestID200ApplicationJSONLastEpisodeToAir) GetVoteAverage() *float64 {
 	if o == nil {
 		return nil
 	}
@@ -210,7 +210,7 @@ type TvSeriesLatestID200ApplicationJSON struct {
 	OriginalLanguage    *string                                             `json:"original_language,omitempty"`
 	OriginalName        *string                                             `json:"original_name,omitempty"`
 	Overview            *string                                             `json:"overview,omitempty"`
-	Popularity          *int64                                              `default:"0" json:"popularity"`
+	Popularity          *float64                                            `default:"0" json:"popularity"`
 	PosterPath          interface{}                                         `json:"poster_path,omitempty"`
 	ProductionCompanies []interface{}                                       `json:"production_companies,omitempty"`
 	ProductionCountries []interface{}                                       `json:"production_countries,omitempty"`
@@ -219,7 +219,7 @@ type TvSeriesLatestID200ApplicationJSON struct {
 	Status              *string                                             `json:"status,omitempty"`
 	Tagline             *string                                             `json:"tagline,omitempty"`
 	Type                *string                                             `json:"type,omitempty"`
-	VoteAverage         *int64                                              `default:"0" json:"vote_average"`
+	VoteAverage         *float64                                            `default:"0" json:"vote_average"`
 	VoteCount           *int64                                              `default:"0" json:"vote_count"`
 }
 
@@ -381,7 +381,7 @@ func (o *TvSeriesLatestID200ApplicationJSON) GetOverview() *string {
 	return o.Overview
 }
 
-func (o *TvSeriesLatestID200ApplicationJSON) GetPopularity() *int64 {
+func (o *TvSeriesLatestID200ApplicationJSON) GetPopularity() *float64 {
 	if o == nil {
 		return nil
 	}
@@ -444,7 +444,7 @@ func (o *TvSeriesLatestID200ApplicationJSON) GetType() *string {
 	return o.Type
 }
 
-func (o *TvSeriesLatestID200ApplicationJSON) GetVoteAverage() *int64 {
+func (o *TvSeriesLatestID200ApplicationJSON) GetVoteAverage() *float64 {
 	if o == nil {
 		return nil
 	}
