@@ -57,7 +57,7 @@ var startDate *types.Date = nil
 
 func TestClient_CollectionDetails(t *testing.T) {
 	c := testClient(t)
-	// collectionID int	
+	var collectionID int = collectionID_int	
 var language *string = nil
 	r, err := c.CollectionDetails( collectionID,  language)
 	assert.NoError(t, err)
@@ -66,7 +66,7 @@ var language *string = nil
 
 func TestClient_CollectionImages(t *testing.T) {
 	c := testClient(t)
-	// collectionID int	
+	var collectionID int = collectionID_int	
 var includeImageLanguage *string = nil	
 var language *string = nil
 	r, err := c.CollectionImages( collectionID,  includeImageLanguage,  language)
@@ -76,7 +76,7 @@ var language *string = nil
 
 func TestClient_CollectionTranslations(t *testing.T) {
 	c := testClient(t)
-	// collectionID int
+	var collectionID int = collectionID_int
 	r, err := c.CollectionTranslations( collectionID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -84,7 +84,7 @@ func TestClient_CollectionTranslations(t *testing.T) {
 
 func TestClient_CompanyAlternativeNames(t *testing.T) {
 	c := testClient(t)
-	// companyID int
+	var companyID int = companyID_int
 	r, err := c.CompanyAlternativeNames( companyID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -92,7 +92,7 @@ func TestClient_CompanyAlternativeNames(t *testing.T) {
 
 func TestClient_CompanyDetails(t *testing.T) {
 	c := testClient(t)
-	// companyID int
+	var companyID int = companyID_int
 	r, err := c.CompanyDetails( companyID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -100,7 +100,7 @@ func TestClient_CompanyDetails(t *testing.T) {
 
 func TestClient_CompanyImages(t *testing.T) {
 	c := testClient(t)
-	// companyID int
+	var companyID int = companyID_int
 	r, err := c.CompanyImages( companyID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -116,7 +116,7 @@ func TestClient_ConfigurationDetails(t *testing.T) {
 
 func TestClient_CreditDetails(t *testing.T) {
 	c := testClient(t)
-	// creditID string
+	var creditID string = creditID_string
 	r, err := c.CreditDetails( creditID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -140,7 +140,7 @@ func TestClient_DiscoverTv(t *testing.T) {
 
 func TestClient_FindByID(t *testing.T) {
 	c := testClient(t)
-	// externalID string	
+	var externalID string = externalID_string	
 var externalSource operations.FindByIDExternalSource = operations_FindByIDExternalSource	
 var language *string = nil
 	r, err := c.FindByID( externalID,  externalSource,  language)
@@ -166,7 +166,7 @@ func TestClient_GenreTvList(t *testing.T) {
 
 func TestClient_KeywordDetails(t *testing.T) {
 	c := testClient(t)
-	var keywordID int = 818
+	var keywordID int = keywordID_int
 	r, err := c.KeywordDetails( keywordID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -174,7 +174,7 @@ func TestClient_KeywordDetails(t *testing.T) {
 
 func TestClient_KeywordMovies(t *testing.T) {
 	c := testClient(t)
-	var keywordID string = "818"	
+	var keywordID string = keywordID_string	
 var includeAdult *bool = nil	
 var language *string = nil	
 var page *int = nil
@@ -185,7 +185,7 @@ var page *int = nil
 
 func TestClient_MovieAlternativeTitles(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var country *string = nil
 	r, err := c.MovieAlternativeTitles( movieID,  country)
 	assert.NoError(t, err)
@@ -194,7 +194,7 @@ var country *string = nil
 
 func TestClient_MovieCredits(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var language *string = nil
 	r, err := c.MovieCredits( movieID,  language)
 	assert.NoError(t, err)
@@ -203,7 +203,7 @@ var language *string = nil
 
 func TestClient_MovieDetails(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var appendToResponse *string = nil	
 var language *string = nil
 	r, err := c.MovieDetails( movieID,  appendToResponse,  language)
@@ -213,7 +213,7 @@ var language *string = nil
 
 func TestClient_MovieExternalIds(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278
+	var movieID int = movieID_int
 	r, err := c.MovieExternalIds( movieID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -221,7 +221,7 @@ func TestClient_MovieExternalIds(t *testing.T) {
 
 func TestClient_MovieImages(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var includeImageLanguage *string = nil	
 var language *string = nil
 	r, err := c.MovieImages( movieID,  includeImageLanguage,  language)
@@ -231,7 +231,7 @@ var language *string = nil
 
 func TestClient_MovieKeywords(t *testing.T) {
 	c := testClient(t)
-	var movieID string = "278"
+	var movieID string = movieID_string
 	r, err := c.MovieKeywords( movieID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -267,7 +267,7 @@ var region *string = nil
 
 func TestClient_MovieRecommendations(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var language *string = nil	
 var page *int = nil
 	r, err := c.MovieRecommendations( movieID,  language,  page)
@@ -277,7 +277,7 @@ var page *int = nil
 
 func TestClient_MovieReleaseDates(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278
+	var movieID int = movieID_int
 	r, err := c.MovieReleaseDates( movieID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -285,7 +285,7 @@ func TestClient_MovieReleaseDates(t *testing.T) {
 
 func TestClient_MovieReviews(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var language *string = nil	
 var page *int = nil
 	r, err := c.MovieReviews( movieID,  language,  page)
@@ -295,7 +295,7 @@ var page *int = nil
 
 func TestClient_MovieSimilar(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var language *string = nil	
 var page *int = nil
 	r, err := c.MovieSimilar( movieID,  language,  page)
@@ -315,7 +315,7 @@ var region *string = nil
 
 func TestClient_MovieTranslations(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278
+	var movieID int = movieID_int
 	r, err := c.MovieTranslations( movieID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -333,7 +333,7 @@ var region *string = nil
 
 func TestClient_MovieVideos(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278	
+	var movieID int = movieID_int	
 var language *string = nil
 	r, err := c.MovieVideos( movieID,  language)
 	assert.NoError(t, err)
@@ -342,7 +342,7 @@ var language *string = nil
 
 func TestClient_MovieWatchProviders(t *testing.T) {
 	c := testClient(t)
-	var movieID int = 278
+	var movieID int = movieID_int
 	r, err := c.MovieWatchProviders( movieID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -350,7 +350,7 @@ func TestClient_MovieWatchProviders(t *testing.T) {
 
 func TestClient_NetworkDetails(t *testing.T) {
 	c := testClient(t)
-	// networkID int
+	var networkID int = networkID_int
 	r, err := c.NetworkDetails( networkID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -358,7 +358,7 @@ func TestClient_NetworkDetails(t *testing.T) {
 
 func TestClient_PersonChanges(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31	
+	var personID int = personID_int	
 var endDate *types.Date = nil	
 var page *int = nil	
 var startDate *types.Date = nil
@@ -369,7 +369,7 @@ var startDate *types.Date = nil
 
 func TestClient_PersonCombinedCredits(t *testing.T) {
 	c := testClient(t)
-	var personID string = "31"	
+	var personID string = personID_string	
 var language *string = nil
 	r, err := c.PersonCombinedCredits( personID,  language)
 	assert.NoError(t, err)
@@ -378,7 +378,7 @@ var language *string = nil
 
 func TestClient_PersonDetails(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31	
+	var personID int = personID_int	
 var appendToResponse *string = nil	
 var language *string = nil
 	r, err := c.PersonDetails( personID,  appendToResponse,  language)
@@ -388,7 +388,7 @@ var language *string = nil
 
 func TestClient_PersonExternalIds(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31
+	var personID int = personID_int
 	r, err := c.PersonExternalIds( personID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -396,7 +396,7 @@ func TestClient_PersonExternalIds(t *testing.T) {
 
 func TestClient_PersonImages(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31
+	var personID int = personID_int
 	r, err := c.PersonImages( personID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -412,7 +412,7 @@ func TestClient_PersonLatestID(t *testing.T) {
 
 func TestClient_PersonMovieCredits(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31	
+	var personID int = personID_int	
 var language *string = nil
 	r, err := c.PersonMovieCredits( personID,  language)
 	assert.NoError(t, err)
@@ -430,7 +430,7 @@ var page *int = nil
 
 func TestClient_PersonTaggedImages(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31	
+	var personID int = personID_int	
 var page *int = nil
 	r, err := c.PersonTaggedImages( personID,  page)
 	assert.NoError(t, err)
@@ -439,7 +439,7 @@ var page *int = nil
 
 func TestClient_PersonTvCredits(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31	
+	var personID int = personID_int	
 var language *string = nil
 	r, err := c.PersonTvCredits( personID,  language)
 	assert.NoError(t, err)
@@ -448,7 +448,7 @@ var language *string = nil
 
 func TestClient_ReviewDetails(t *testing.T) {
 	c := testClient(t)
-	// reviewID string
+	var reviewID string = reviewID_string
 	r, err := c.ReviewDetails( reviewID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -464,7 +464,7 @@ func TestClient_SearchCollection(t *testing.T) {
 
 func TestClient_SearchCompany(t *testing.T) {
 	c := testClient(t)
-	// query string	
+	var query string = query_string	
 var page *int = nil
 	r, err := c.SearchCompany( query,  page)
 	assert.NoError(t, err)
@@ -473,7 +473,7 @@ var page *int = nil
 
 func TestClient_SearchKeyword(t *testing.T) {
 	c := testClient(t)
-	// query string	
+	var query string = query_string	
 var page *int = nil
 	r, err := c.SearchKeyword( query,  page)
 	assert.NoError(t, err)
@@ -490,7 +490,7 @@ func TestClient_SearchMovie(t *testing.T) {
 
 func TestClient_SearchMulti(t *testing.T) {
 	c := testClient(t)
-	// query string	
+	var query string = query_string	
 var includeAdult *bool = nil	
 var language *string = nil	
 var page *int = nil
@@ -501,7 +501,7 @@ var page *int = nil
 
 func TestClient_SearchPerson(t *testing.T) {
 	c := testClient(t)
-	// query string	
+	var query string = query_string	
 var includeAdult *bool = nil	
 var language *string = nil	
 var page *int = nil
@@ -520,7 +520,7 @@ func TestClient_SearchTv(t *testing.T) {
 
 func TestClient_Translations(t *testing.T) {
 	c := testClient(t)
-	var personID int = 31
+	var personID int = personID_int
 	r, err := c.Translations( personID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -564,7 +564,7 @@ var language *string = nil
 
 func TestClient_TvEpisodeChangesByID(t *testing.T) {
 	c := testClient(t)
-	// episodeID int
+	var episodeID int = episodeID_int
 	r, err := c.TvEpisodeChangesByID( episodeID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -572,9 +572,9 @@ func TestClient_TvEpisodeChangesByID(t *testing.T) {
 
 func TestClient_TvEpisodeCredits(t *testing.T) {
 	c := testClient(t)
-	var episodeNumber int = 1	
-var seasonNumber int = 1	
-var seriesID int = 1396	
+	var episodeNumber int = episodeNumber_int	
+var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int	
 var language *string = nil
 	r, err := c.TvEpisodeCredits( episodeNumber,  seasonNumber,  seriesID,  language)
 	assert.NoError(t, err)
@@ -591,9 +591,9 @@ func TestClient_TvEpisodeDetails(t *testing.T) {
 
 func TestClient_TvEpisodeExternalIds(t *testing.T) {
 	c := testClient(t)
-	var episodeNumber string = "1"	
-var seasonNumber int = 1	
-var seriesID int = 1396
+	var episodeNumber string = episodeNumber_string	
+var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int
 	r, err := c.TvEpisodeExternalIds( episodeNumber,  seasonNumber,  seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -601,7 +601,7 @@ var seriesID int = 1396
 
 func TestClient_TvEpisodeGroupDetails(t *testing.T) {
 	c := testClient(t)
-	// tvEpisodeGroupID string
+	var tvEpisodeGroupID string = tvEpisodeGroupID_string
 	r, err := c.TvEpisodeGroupDetails( tvEpisodeGroupID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -617,9 +617,9 @@ func TestClient_TvEpisodeImages(t *testing.T) {
 
 func TestClient_TvEpisodeTranslations(t *testing.T) {
 	c := testClient(t)
-	var episodeNumber int = 1	
-var seasonNumber int = 1	
-var seriesID int = 1396
+	var episodeNumber int = episodeNumber_int	
+var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int
 	r, err := c.TvEpisodeTranslations( episodeNumber,  seasonNumber,  seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -635,8 +635,8 @@ func TestClient_TvEpisodeVideos(t *testing.T) {
 
 func TestClient_TvSeasonAggregateCredits(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396	
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int	
 var language *string = nil
 	r, err := c.TvSeasonAggregateCredits( seasonNumber,  seriesID,  language)
 	assert.NoError(t, err)
@@ -645,7 +645,7 @@ var language *string = nil
 
 func TestClient_TvSeasonChangesByID(t *testing.T) {
 	c := testClient(t)
-	// seasonID int	
+	var seasonID int = seasonID_int	
 var endDate *string = nil	
 var page *int = nil	
 var startDate *string = nil
@@ -656,8 +656,8 @@ var startDate *string = nil
 
 func TestClient_TvSeasonCredits(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396	
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int	
 var language *string = nil
 	r, err := c.TvSeasonCredits( seasonNumber,  seriesID,  language)
 	assert.NoError(t, err)
@@ -666,8 +666,8 @@ var language *string = nil
 
 func TestClient_TvSeasonDetails(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396	
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int	
 var appendToResponse *string = nil	
 var language *string = nil
 	r, err := c.TvSeasonDetails( seasonNumber,  seriesID,  appendToResponse,  language)
@@ -677,8 +677,8 @@ var language *string = nil
 
 func TestClient_TvSeasonExternalIds(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int
 	r, err := c.TvSeasonExternalIds( seasonNumber,  seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -686,8 +686,8 @@ var seriesID int = 1396
 
 func TestClient_TvSeasonImages(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396	
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int	
 var includeImageLanguage *string = nil	
 var language *string = nil
 	r, err := c.TvSeasonImages( seasonNumber,  seriesID,  includeImageLanguage,  language)
@@ -697,8 +697,8 @@ var language *string = nil
 
 func TestClient_TvSeasonTranslations(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int
 	r, err := c.TvSeasonTranslations( seasonNumber,  seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -706,8 +706,8 @@ var seriesID int = 1396
 
 func TestClient_TvSeasonVideos(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396	
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int	
 var includeVideoLanguage *string = nil	
 var language *string = nil
 	r, err := c.TvSeasonVideos( seasonNumber,  seriesID,  includeVideoLanguage,  language)
@@ -717,8 +717,8 @@ var language *string = nil
 
 func TestClient_TvSeasonWatchProviders(t *testing.T) {
 	c := testClient(t)
-	var seasonNumber int = 1	
-var seriesID int = 1396	
+	var seasonNumber int = seasonNumber_int	
+var seriesID int = seriesID_int	
 var language *string = nil
 	r, err := c.TvSeasonWatchProviders( seasonNumber,  seriesID,  language)
 	assert.NoError(t, err)
@@ -727,7 +727,7 @@ var language *string = nil
 
 func TestClient_TvSeriesAggregateCredits(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var language *string = nil
 	r, err := c.TvSeriesAggregateCredits( seriesID,  language)
 	assert.NoError(t, err)
@@ -746,7 +746,7 @@ var timezone *string = nil
 
 func TestClient_TvSeriesAlternativeTitles(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesAlternativeTitles( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -754,7 +754,7 @@ func TestClient_TvSeriesAlternativeTitles(t *testing.T) {
 
 func TestClient_TvSeriesChanges(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var endDate *string = nil	
 var page *int = nil	
 var startDate *string = nil
@@ -765,7 +765,7 @@ var startDate *string = nil
 
 func TestClient_TvSeriesContentRatings(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesContentRatings( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -773,7 +773,7 @@ func TestClient_TvSeriesContentRatings(t *testing.T) {
 
 func TestClient_TvSeriesCredits(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var language *string = nil
 	r, err := c.TvSeriesCredits( seriesID,  language)
 	assert.NoError(t, err)
@@ -782,7 +782,7 @@ var language *string = nil
 
 func TestClient_TvSeriesDetails(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var appendToResponse *string = nil	
 var language *string = nil
 	r, err := c.TvSeriesDetails( seriesID,  appendToResponse,  language)
@@ -792,7 +792,7 @@ var language *string = nil
 
 func TestClient_TvSeriesEpisodeGroups(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesEpisodeGroups( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -800,7 +800,7 @@ func TestClient_TvSeriesEpisodeGroups(t *testing.T) {
 
 func TestClient_TvSeriesExternalIds(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesExternalIds( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -808,7 +808,7 @@ func TestClient_TvSeriesExternalIds(t *testing.T) {
 
 func TestClient_TvSeriesImages(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var includeImageLanguage *string = nil	
 var language *string = nil
 	r, err := c.TvSeriesImages( seriesID,  includeImageLanguage,  language)
@@ -818,7 +818,7 @@ var language *string = nil
 
 func TestClient_TvSeriesKeywords(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesKeywords( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -853,7 +853,7 @@ var page *int = nil
 
 func TestClient_TvSeriesRecommendations(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var language *string = nil	
 var page *int = nil
 	r, err := c.TvSeriesRecommendations( seriesID,  language,  page)
@@ -863,7 +863,7 @@ var page *int = nil
 
 func TestClient_TvSeriesReviews(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var language *string = nil	
 var page *int = nil
 	r, err := c.TvSeriesReviews( seriesID,  language,  page)
@@ -873,7 +873,7 @@ var page *int = nil
 
 func TestClient_TvSeriesScreenedTheatrically(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesScreenedTheatrically( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -881,7 +881,7 @@ func TestClient_TvSeriesScreenedTheatrically(t *testing.T) {
 
 func TestClient_TvSeriesSimilar(t *testing.T) {
 	c := testClient(t)
-	var seriesID string = "1396"	
+	var seriesID string = seriesID_string	
 var language *string = nil	
 var page *int = nil
 	r, err := c.TvSeriesSimilar( seriesID,  language,  page)
@@ -900,7 +900,7 @@ var page *int = nil
 
 func TestClient_TvSeriesTranslations(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesTranslations( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)
@@ -908,7 +908,7 @@ func TestClient_TvSeriesTranslations(t *testing.T) {
 
 func TestClient_TvSeriesVideos(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396	
+	var seriesID int = seriesID_int	
 var includeVideoLanguage *string = nil	
 var language *string = nil
 	r, err := c.TvSeriesVideos( seriesID,  includeVideoLanguage,  language)
@@ -918,7 +918,7 @@ var language *string = nil
 
 func TestClient_TvSeriesWatchProviders(t *testing.T) {
 	c := testClient(t)
-	var seriesID int = 1396
+	var seriesID int = seriesID_int
 	r, err := c.TvSeriesWatchProviders( seriesID)
 	assert.NoError(t, err)
 	assert.NotNil(t, r)

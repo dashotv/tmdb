@@ -58,47 +58,17 @@ FUNC = open('functions.go', 'a+')
 TEST = open('functions_test.go', 'a+')
 
 def testVar(n, t)
-  v = testType(n, t)
-  return "// #{n} #{t}" if !v
-  return "var #{n} #{t} = #{v}" if t != v
-  return ""
+  "var #{n} #{t} = #{testType(n, t)}"
 end
 
 def testType(n, t)
-  if t =~ /^operations\./
-    return t.gsub(/^operations\./, 'operations_')
-  end
-
-  case n
-  when 'movieID'
-    return t == 'string' ? '"278"' : '278'
-  when 'keywordID'
-    return t == 'string' ? '"818"' : '818'
-  when 'personID'
-    return t == 'string' ? '"31"' : '31'
-  when 'seriesID'
-    return t == 'string' ? '"1396"' : '1396'
-  when 'seasonNumber'
-    return t == 'string' ? '"1"' : '1'
-  when 'episodeNumber'
-    return t == 'string' ? '"1"' : '1'
-  # when 'request'
-  #   return "#{t}{}"
-  end
-
   return 'nil' if t[0] == '*'
-  case t
-  when 'bool'
-    return 'false'
-  when 'float64'
-    return '0.0'
-  end
+  return t.gsub(/^operations\./, 'operations_') if t =~ /^operations\./
+  return "#{n}_#{t}"
 end
 
 STDIN.each do |line|
   m = line.match(/func \(\w\s\*(\w+)\) (\w+)\(ctx context.Context(, )*([^\)]+)*\) \(\*operations\.(\w+), error\) \{/)
-  #puts "\n\n"+ line
-  #puts m.inspect
   next unless m
   next if skipped.include?(m[2])
   serv=m[1]
