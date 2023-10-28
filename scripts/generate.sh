@@ -9,20 +9,20 @@ VERSION=$(cat "${PWD}/.version" 2>/dev/null || echo v0)
 NAME="$1"
 SPEC="$2"
 
-# rm -rf openapi
-# mkdir -p openapi
-# # set golang defaults for generator
-# printf "go:\n  packageName: github.com/dashotv/$NAME/openapi\n  version: %s" "$VERSION" >openapi/gen.yaml
-# # generate go sdk
-# speakeasy generate sdk -l go -o openapi -s "./$SPEC"
-# # cleanup generated mod files
-# rm -rf openapi/go.*
-# # remove pkg folder
-# mv openapi/pkg/* openapi/
-# rm -rf openapi/pkg
-# # remove pkg from imports
-# find ./openapi -type f -exec sed -i '.backup' "s/pkg\///g" {} \;
-# find ./openapi -type f -name '*.backup' -delete
+rm -rf openapi
+mkdir -p openapi
+# set golang defaults for generator
+printf "go:\n  packageName: github.com/dashotv/$NAME/openapi\n  version: %s" "$VERSION" >openapi/gen.yaml
+# generate go sdk
+speakeasy generate sdk -l go -o openapi -s "./$SPEC"
+# cleanup generated mod files
+rm -rf openapi/go.*
+# remove pkg folder
+mv openapi/pkg/* openapi/
+rm -rf openapi/pkg
+# remove pkg from imports
+find ./openapi -type f -exec sed -i '.backup' "s/pkg\///g" {} \;
+find ./openapi -type f -name '*.backup' -delete
 
 # copy types to root
 {
