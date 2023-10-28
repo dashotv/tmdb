@@ -752,17 +752,6 @@ func TestClient_TvSeriesAlternativeTitles(t *testing.T) {
 	assert.NotNil(t, r)
 }
 
-func TestClient_TvSeriesChanges(t *testing.T) {
-	c := testClient(t)
-	var seriesID int = seriesID_int	
-var endDate *string = nil	
-var page *int = nil	
-var startDate *string = nil
-	r, err := c.TvSeriesChanges( seriesID,  endDate,  page,  startDate)
-	assert.NoError(t, err)
-	assert.NotNil(t, r)
-}
-
 func TestClient_TvSeriesContentRatings(t *testing.T) {
 	c := testClient(t)
 	var seriesID int = seriesID_int

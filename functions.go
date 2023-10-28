@@ -991,18 +991,6 @@ func (c *Client) TvSeriesAlternativeTitles(seriesID int) (*TvSeriesAlternativeTi
 	return r.TvSeriesAlternativeTitles200ApplicationJSONObject, nil
 }
 
-// TvSeriesChanges wraps the generated openapi.SDK.TvSeriesChanges call
-func (c *Client) TvSeriesChanges(seriesID int, endDate *string, page *int, startDate *string) (*TvSeriesChangesResponse, error) {
-	r, err := c.sdk.TvSeriesChanges(c.ctx, seriesID, endDate, page, startDate)
-	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		return nil, errors.Errorf("non-200 response: %d", r.StatusCode)
-	}
-	return r.TvSeriesChanges200ApplicationJSONObject, nil
-}
-
 // TvSeriesContentRatings wraps the generated openapi.SDK.TvSeriesContentRatings call
 func (c *Client) TvSeriesContentRatings(seriesID int) (*TvSeriesContentRatingsResponse, error) {
 	r, err := c.sdk.TvSeriesContentRatings(c.ctx, seriesID)

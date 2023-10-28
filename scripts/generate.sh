@@ -47,26 +47,26 @@ find ./openapi -type f -name '*.backup' -delete
 
 # copy functions to root
 cat <<HERE >functions.go
-package tmdb
+package ${NAME}
 
 import (
 	"github.com/pkg/errors"
 
-	"github.com/dashotv/tmdb/openapi/models/operations"
-	"github.com/dashotv/tmdb/openapi/types"
+	"github.com/dashotv/${NAME}/openapi/models/operations"
+	"github.com/dashotv/${NAME}/openapi/types"
 )
 
 HERE
 cat <<HERE >functions_test.go
-package tmdb
+package ${NAME}
 
 import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/dashotv/tmdb/openapi/models/operations"
-	"github.com/dashotv/tmdb/openapi/types"
+	"github.com/dashotv/${NAME}/openapi/models/operations"
+	"github.com/dashotv/${NAME}/openapi/types"
 )
 
 HERE

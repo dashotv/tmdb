@@ -52,6 +52,8 @@ skipped = [
   "GuestSessionRatedMovies",
   "GuestSessionRatedTv",
   "GuestSessionRatedTvEpisodes",
+  # Buggy
+  "TvSeriesChanges",
 ]
 
 FUNC = open('functions.go', 'a+')
