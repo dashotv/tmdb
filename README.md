@@ -55,7 +55,7 @@ Your TMDB [Account page API section](https://www.themoviedb.org/settings/api) wi
 
 ## Development
 
-Crate a local `.env` file with the following content:
+Create a local `.env` file with the following content:
 
 ```
 # .env
