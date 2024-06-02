@@ -4,8 +4,16 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
+
+func init() {
+	if err := godotenv.Load("./.env"); err != nil {
+		panic(err)
+	}
+}
 
 func TestNew(t *testing.T) {
 	c := New(tmdbToken)
@@ -13,7 +21,7 @@ func TestNew(t *testing.T) {
 }
 
 func TestClient_Search(t *testing.T) {
-	assert.NotEmpty(t, tmdbToken, "TMDB_API_TOKEN is empty")
+	require.NotEmpty(t, tmdbToken, "TMDB_API_TOKEN is empty")
 
 	c := New(tmdbToken)
 	assert.Equal(t, tmdbToken, c.Token)

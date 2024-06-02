@@ -9,7 +9,7 @@ import (
 	"github.com/dashotv/tmdb/openapi/models/operations"
 )
 
-var tmdbToken = os.Getenv("TMDB_API_TOKEN")
+var tmdbToken = os.Getenv("TMDB_TOKEN")
 
 var collectionID_int = 131295
 var companyID_int = 7505
